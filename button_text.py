@@ -1,0 +1,27 @@
+element = "✨ Element"
+weapon = "⚔️Weapon"
+rarity = "🎇 Rarity"
+region = "🗺️ Region"
+
+cryo = "❄ Cryo"
+pyro = "🔥 Pyro"
+geo = "🪨 Geo"
+electro = "⚡ Electro"
+dendro = "🌱 Dendro"
+anemo = "🌪️ Anemo"
+hydro = "💦 Hydro"
+reset = "🔙"
+
+bow = "🏹 Bow"
+claymore = "🗡️ Claymore"
+sword = "⚔ Sword"
+polearm = "🔱 Polearm"
+catalyst = "📔 Catalyst"
+
+rarity_4 = "4️⃣"
+rarity_5 = "5️⃣"
+
+mondstadt = "🍃 Mondstadt"
+li_yue = "☄️Li Yue"
+inazuma = "🌩️ Inazuma"
+sumeru = "🌴 Sumeru"
