@@ -1,2 +1,4 @@
 /.env
 /env_data.py
+/__pycache__
+/.idea
