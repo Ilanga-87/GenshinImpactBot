@@ -1,6 +1,7 @@
+import service
 from service import (
     CRITERIA_INPUT, VALUE_INPUT,
-    get_characters, all_chars_list, display_characters, clear_pressed_button,
+    get_characters, display_characters, clear_pressed_button,
     CRITERIA_FILTER, VALUE_FILTER, REPEAT_CRITERIA_FILTER, REPEAT_VALUE_FILTER, REPEAT_MAIN_KB
 )
 from keyboards import dynamic_main_keyboard, value_keyboards_list
@@ -38,11 +39,13 @@ async def filter_by(update, context):
 
 async def value_filter(update, context):
     VALUE_INPUT[0] = update.callback_query["data"].split(".")[-1]
-    filtered_list = get_characters(all_chars_list, CRITERIA_INPUT[0] + 1, VALUE_INPUT[0])
-    # print(CRITERIA_INPUT)
-    # print(VALUE_INPUT)
+    print(CRITERIA_INPUT)
+    print(VALUE_INPUT)
+    filtered_list = get_characters(service.list_to_filter, CRITERIA_INPUT[0] + 1, VALUE_INPUT[0])
+
     # print(filtered_list)
     display_list = display_characters(filtered_list)
+    service.list_to_filter = filtered_list
     # print(display_list)
     await update.callback_query.message.edit_text(display_list)
     await update.callback_query.message.reply_text(text=second_criteria_text, reply_markup=dynamic_main_keyboard())

@@ -12,6 +12,7 @@ with open("data.csv", "r") as file:
         new_order = [0, 2, 3, 1, 4]
         ordered_list = [default_ordered_list[i] for i in new_order]
         all_chars_list.append(tuple(ordered_list))
+        list_to_filter = all_chars_list[:]
 
 
 def get_characters(char_list, criteria, value):
