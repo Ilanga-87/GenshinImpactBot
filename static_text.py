@@ -1,7 +1,15 @@
 welcome_text = """
 Here you can choose the first option to filter all Genshin Impact characters by:
 """
-element_text = """
+second_criteria_text = """
+Here you can choose the second option to filter all Genshin Impact characters by:"""
+value_choice_text = [
+    "Select the element you need. If you want to back to start choice, press BACK button",
+    "Select the weapon you need. If you want to back to start choice, press BACK button",
+    "Select the rarity you need. If you want to back to start choice, press BACK button",
+    "Select the region you need. If you want to back to start choice, press BACK button",
+]
+"""
 Select the element you need. If you want to back to start choice, press BACK button
 """
 success_message = """

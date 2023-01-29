@@ -10,7 +10,7 @@ from button_text import (
 )
 from manage_data import (
     TWO_TWO, NEW, ELEMENT_CHOICE, WEAPON_CHOICE, RARITY_CHOICE, REGION_CHOICE,
-    ELEMENT_VALUE, WEAPON_VALUE, RARITY_VALUE, REGION_VALUE, FILTER_VALUE,
+    ELEMENT_VALUE, WEAPON_VALUE, RARITY_VALUE, REGION_VALUE, FILTER_VALUE, FILTER_CRITERIA,
     CRYO, PYRO, GEO, ANEMO, HYDRO, DENDRO, ELECTRO,
     SWORD, CATALYST, CLAYMORE, BOW, POLEARM,
     RARITY_4, RARITY_5,
@@ -20,15 +20,34 @@ from manage_data import (
 
 reset_button = InlineKeyboardButton(reset, callback_data=f"{RESET}")
 
+main_menu_buttons_dict = {
+    "element": ELEMENT_CHOICE,
+    "weapon": WEAPON_CHOICE,
+    "rarity": RARITY_CHOICE,
+    "region": REGION_CHOICE,
+    "reset": RESET,
+}
 
-def main_keyboard():
-    buttons = [
-        [InlineKeyboardButton(element, callback_data=f"{ELEMENT_CHOICE}"),
-         InlineKeyboardButton(weapon, callback_data=f"{WEAPON_CHOICE}")],
-        [InlineKeyboardButton(rarity, callback_data=f"{RARITY_CHOICE}"),
-         InlineKeyboardButton(region, callback_data=f"{REGION_CHOICE}")
-         ]]
-    return InlineKeyboardMarkup(buttons)
+main_menu_buttons_list = (
+    ELEMENT_CHOICE,
+    WEAPON_CHOICE,
+    RARITY_CHOICE,
+    REGION_CHOICE,
+    RESET,
+)
+
+possible_main_kb_buttons = [
+    InlineKeyboardButton(element, callback_data=f"{FILTER_CRITERIA}.{ELEMENT_CHOICE}"),
+    InlineKeyboardButton(weapon, callback_data=f"{FILTER_CRITERIA}.{WEAPON_CHOICE}"),
+    InlineKeyboardButton(rarity, callback_data=f"{FILTER_CRITERIA}.{RARITY_CHOICE}"),
+    InlineKeyboardButton(region, callback_data=f"{FILTER_CRITERIA}.{REGION_CHOICE}"),
+    InlineKeyboardButton(reset, callback_data=f"{RESET}")
+]
+
+
+def dynamic_main_keyboard():
+    actual_main_kb_buttons = possible_main_kb_buttons[:4]
+    return InlineKeyboardMarkup.from_column(actual_main_kb_buttons)
 
 
 def elements_keyboard():
@@ -37,7 +56,7 @@ def elements_keyboard():
             InlineKeyboardButton(anemo, callback_data=f"{FILTER_VALUE}.{ANEMO}"),
             InlineKeyboardButton(electro, callback_data=f"{FILTER_VALUE}.{ELECTRO}"),
         ],
-        [
+        [ 
             InlineKeyboardButton(cryo, callback_data=f"{FILTER_VALUE}.{CRYO}"),
             InlineKeyboardButton(pyro, callback_data=f"{FILTER_VALUE}.{PYRO}"),
         ],
@@ -103,3 +122,6 @@ def region_keyboard():
         ]
     ]
     return InlineKeyboardMarkup(buttons)
+
+
+value_keyboards_list = [elements_keyboard(), weapon_keyboard(), rarity_keyboard(), region_keyboard()]

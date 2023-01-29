@@ -1,4 +1,5 @@
 import static_text
+from keyboards import possible_main_kb_buttons
 
 with open("data.csv", "r") as file:
     file.readline()
@@ -23,7 +24,7 @@ def get_characters(char_list, criteria, value):
 
 
 # Variables to filter characters
-CRITERIA_INPUT = [""]
+CRITERIA_INPUT = ["-100"]
 VALUE_INPUT = [""]
 
 
@@ -35,3 +36,13 @@ def display_characters(chars_list):
     for char in chars_list:
         chars_in_strings += f"{char[0]} - {char[1]} - {char[2]} - {char[3]} - {char[4]} \n"
     return chars_in_strings
+
+
+def clear_pressed_button(btn):
+    possible_main_kb_buttons.pop(btn)
+    return possible_main_kb_buttons
+
+
+# Variables for states in ConversationHandler
+CRITERIA_FILTER, RESET = range(2)
+REPEAT_MAIN_KB, VALUE_FILTER, REPEAT_CRITERIA_FILTER, REPEAT_VALUE_FILTER = range(2, 6)
