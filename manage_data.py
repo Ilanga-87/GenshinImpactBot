@@ -32,3 +32,28 @@ MONDSTADT = "Mondstadt"
 LI_YUE = "Li Yue"
 INAZUMA = "Inazuma"
 SUMERU = "Sumeru"
+
+elements_dict = {
+    "pyro": "🔥 ",
+    "cryo": "❄ ",
+    "geo": "🪨 ",
+    "dendro": "🌱 ",
+    "anemo": "🌪️ ",
+    "electro": "⚡ ",
+    "hydro": "💦 ",
+}
+
+weapon_dict = {
+    "sword": "⚔ ",
+    "bow": "🏹 ",
+    "catalyst": "📔 ",
+    "claymore": "🗡️ ",
+    "polearm": "🔱 "
+}
+
+regions_dict = {
+    "mondstadt": "🍃 ",
+    "liyue": "☄️",
+    "inazuma": "🌩️ ",
+    "sumeru": "🌴 "
+}

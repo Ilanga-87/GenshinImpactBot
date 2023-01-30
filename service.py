@@ -1,6 +1,8 @@
 from telegram.ext import ConversationHandler
 
 import static_text
+import button_text
+from manage_data import elements_dict, weapon_dict, regions_dict
 
 with open("data.csv", "r") as file:
     file.readline()
@@ -38,6 +40,22 @@ def display_characters(chars_list):
     for char in chars_list:
         chars_in_strings += f"{char[0]} - {char[1]} - {char[2]} - {char[3]} - {char[4]} \n"
     return chars_in_strings
+
+
+def display_characters_with_emoji(chars_list):
+    if len(chars_list) < 1:
+        return static_text.empty_list_message
+
+    chars_in_strings_with_emoji = ""
+    for char in chars_list:
+        char_element = char[1].lower()
+        char_weapon = char[2].lower()
+        char_region = char[4].lower()
+        chars_in_strings_with_emoji += f"{char[0]}  |  " \
+                                       f"{elements_dict[char_element]}{char[1]}  |  " \
+                                       f"{weapon_dict[char_weapon]}{char[2]}  |  {char[3]}  |  " \
+                                       f"{regions_dict.get(char_region)}{char[4]} \n"
+    return chars_in_strings_with_emoji
 
 
 def clear_pressed_button(lst, btn):
