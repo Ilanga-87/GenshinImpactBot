@@ -1,4 +1,11 @@
-#TODO write text for descriptions; ru version; add all chars
+about_bot = """
+The bot that will help you to filter Genshin Impact characters by Element, Weapon, Rarity and Region.
+"""
+description = """
+Simple bot that can filter Genshin Impact characters by Element, Weapon, Rarity and Region. 
+Has only control command /filter.
+Have fun!
+"""
 
 welcome_text = """
 Hi! I will filter for you Genshin Impact characters. Every filtration can have 2 criterion. E.g., Element and Weapon.

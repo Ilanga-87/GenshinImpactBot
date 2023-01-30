@@ -1,3 +1,4 @@
+from operator import itemgetter
 from telegram.ext import ConversationHandler
 
 import static_text
@@ -24,7 +25,9 @@ def get_characters(char_list, criteria, value):
         for tpl in char_list:
             if str(tpl[criteria]).lower() == str(value).lower():
                 result_list.append(tpl)
-    return result_list
+    sorted_by_alphabet = sorted(result_list)
+    sorted_by_rarity = sorted(sorted_by_alphabet, key=itemgetter(3), reverse=True)
+    return sorted_by_rarity
 
 
 # Variables to filter characters
@@ -32,6 +35,7 @@ CRITERIA_INPUT = ["-100"]
 VALUE_INPUT = [""]
 
 
+# Unused but possible useful
 def display_characters(chars_list):
     if len(chars_list) < 1:
         return static_text.empty_list_message
@@ -54,7 +58,7 @@ def display_characters_with_emoji(chars_list):
         chars_in_strings_with_emoji += f"{char[0]}  |  " \
                                        f"{elements_dict[char_element]}{char[1]}  |  " \
                                        f"{weapon_dict[char_weapon]}{char[2]}  |  {char[3]}  |  " \
-                                       f"{regions_dict.get(char_region)}{char[4]} \n"
+                                       f"{regions_dict.get(char_region, '')}{char[4]} \n"
     return chars_in_strings_with_emoji
 
 
