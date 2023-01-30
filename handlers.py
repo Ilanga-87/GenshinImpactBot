@@ -2,12 +2,13 @@ import service
 import keyboards
 from service import (
     CRITERIA_INPUT, VALUE_INPUT,
-    get_characters, display_characters, clear_pressed_button, display_characters_with_emoji,
+    get_characters, clear_pressed_button, display_characters_with_emoji,
     CRITERIA_FILTER, VALUE_FILTER, REPEAT_CRITERIA_FILTER, END
 )
 from keyboards import dynamic_main_keyboard, value_keyboards_list
 from static_text import (
-    welcome_text, success_message, first_criteria_text, second_criteria_text, value_choice_text, help_text
+    welcome_text, success_message, first_criteria_text, second_criteria_text,
+    value_choice_text, help_text, undefined_command_text
 )
 
 
@@ -52,4 +53,9 @@ async def hide_previous_keyboard(update, context):
 
 async def helper(update, context):
     text = help_text
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=text)
+
+
+async def undefined_commands(update, context):
+    text = undefined_command_text
     await context.bot.send_message(chat_id=update.effective_chat.id, text=text)

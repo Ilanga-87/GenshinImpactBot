@@ -1,7 +1,9 @@
-#TODO write text for start, help, descriptions; ru version; write func for unhandled requests; add all chars
+#TODO write text for descriptions; ru version; add all chars
 
 welcome_text = """
-Hi!
+Hi! I will filter for you Genshin Impact characters. Every filtration can have 2 criterion. E.g., Element and Weapon.
+Of course, when the amount of characters will be more then 100, I will add more filter steps :)
+My main command is /filter. Also you can look at /help.
 """
 first_criteria_text = """
 Here you can choose the first option to filter all Genshin Impact characters by:
@@ -24,8 +26,13 @@ success_message = """
 Ok, let's go farther
 """
 empty_list_message = """
-Characters not found"""
+Characters not found
+"""
 
 help_text = """
-Help!
+You can control me by /filter command.
+"""
+
+undefined_command_text = """
+Sorry, I didn't understand that command. May be /help can be useful for you.
 """
