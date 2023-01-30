@@ -5,24 +5,25 @@ from service import (
     get_characters, display_characters, clear_pressed_button,
     CRITERIA_FILTER, VALUE_FILTER, REPEAT_CRITERIA_FILTER, END
 )
-from keyboards import (
-    dynamic_main_keyboard, value_keyboards_list
+from keyboards import dynamic_main_keyboard, value_keyboards_list
+from static_text import (
+    welcome_text, success_message, first_criteria_text, second_criteria_text, value_choice_text, help_text
 )
-from static_text import welcome_text, success_message, second_criteria_text, value_choice_text
 
 
 async def start(update, context):
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="Hello, world!")
+    text = welcome_text
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=text)
 
 
-async def menu(update, context):
+async def start_filter(update, context):
     keyboards.possible_main_kb_buttons_in_list = list(keyboards.possible_main_kb_buttons_tuple)[:]
     service.list_to_filter = service.all_chars_list[:]
-    await update.message.reply_text(text=welcome_text, reply_markup=dynamic_main_keyboard())
+    await update.message.reply_text(text=first_criteria_text, reply_markup=dynamic_main_keyboard())
     return CRITERIA_FILTER
 
 
-async def filter_by(update, context):
+async def criteria_filter(update, context):
     await hide_previous_keyboard(update, context)
     pointer = int(update.callback_query["data"].split(".")[-1])
     CRITERIA_INPUT[0] = pointer
@@ -47,3 +48,8 @@ async def value_filter(update, context):
 
 async def hide_previous_keyboard(update, context):
     await update.callback_query.message.edit_text(success_message)
+
+
+async def helper(update, context):
+    text = help_text
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=text)

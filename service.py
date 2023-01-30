@@ -1,7 +1,6 @@
 from telegram.ext import ConversationHandler
 
 import static_text
-from keyboards import possible_main_kb_buttons_in_list
 
 with open("data.csv", "r") as file:
     file.readline()

@@ -10,7 +10,6 @@ electro = "⚡ Electro"
 dendro = "🌱 Dendro"
 anemo = "🌪️ Anemo"
 hydro = "💦 Hydro"
-reset = "🔙"
 
 bow = "🏹 Bow"
 claymore = "🗡️ Claymore"

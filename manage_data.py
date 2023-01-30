@@ -32,5 +32,3 @@ MONDSTADT = "Mondstadt"
 LI_YUE = "Li Yue"
 INAZUMA = "Inazuma"
 SUMERU = "Sumeru"
-
-RESET = "RST"

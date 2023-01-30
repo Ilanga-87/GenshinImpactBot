@@ -6,7 +6,6 @@ from button_text import (
     bow, sword, polearm, catalyst, claymore,
     rarity_4, rarity_5,
     mondstadt, li_yue, inazuma, sumeru,
-    reset
 )
 from manage_data import (
     ELEMENT_CHOICE, WEAPON_CHOICE, RARITY_CHOICE, REGION_CHOICE,
