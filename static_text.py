@@ -1,3 +1,5 @@
+#TODO prettify output; write text for start, help, descriptions; ru version; write func for unhandled requests; add all chars
+
 welcome_text = """
 Hi!
 """

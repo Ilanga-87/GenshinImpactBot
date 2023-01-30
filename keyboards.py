@@ -39,19 +39,17 @@ def dynamic_main_keyboard():
 def elements_keyboard():
     buttons = [
         [
-            InlineKeyboardButton(anemo, callback_data=f"{FILTER_VALUE}.{ANEMO}"),
-            InlineKeyboardButton(electro, callback_data=f"{FILTER_VALUE}.{ELECTRO}"),
-        ],
-        [
             InlineKeyboardButton(cryo, callback_data=f"{FILTER_VALUE}.{CRYO}"),
             InlineKeyboardButton(pyro, callback_data=f"{FILTER_VALUE}.{PYRO}"),
-        ],
-        [
             InlineKeyboardButton(geo, callback_data=f"{FILTER_VALUE}.{GEO}"),
-            InlineKeyboardButton(dendro, callback_data=f"{FILTER_VALUE}.{DENDRO}"),
         ],
         [
+            InlineKeyboardButton(anemo, callback_data=f"{FILTER_VALUE}.{ANEMO}"),
+            InlineKeyboardButton(dendro, callback_data=f"{FILTER_VALUE}.{DENDRO}"),
             InlineKeyboardButton(hydro, callback_data=f"{FILTER_VALUE}.{HYDRO}"),
+        ],
+        [
+            InlineKeyboardButton(electro, callback_data=f"{FILTER_VALUE}.{ELECTRO}"),
         ],
     ]
     return InlineKeyboardMarkup(buttons)
@@ -61,14 +59,14 @@ def weapon_keyboard():
     buttons = [
         [
             InlineKeyboardButton(bow, callback_data=f"{FILTER_VALUE}.{BOW}"),
-            InlineKeyboardButton(polearm, callback_data=f"{FILTER_VALUE}.{POLEARM}")
-        ],
-        [
-            InlineKeyboardButton(claymore, callback_data=f"{FILTER_VALUE}.{CLAYMORE}"),
             InlineKeyboardButton(catalyst, callback_data=f"{FILTER_VALUE}.{CATALYST}")
         ],
         [
             InlineKeyboardButton(sword, callback_data=f"{FILTER_VALUE}.{SWORD}"),
+            InlineKeyboardButton(polearm, callback_data=f"{FILTER_VALUE}.{POLEARM}")
+        ],
+        [
+            InlineKeyboardButton(claymore, callback_data=f"{FILTER_VALUE}.{CLAYMORE}"),
         ],
     ]
     return InlineKeyboardMarkup(buttons)
