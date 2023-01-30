@@ -1,5 +1,7 @@
+from telegram.ext import ConversationHandler
+
 import static_text
-from keyboards import possible_main_kb_buttons
+from keyboards import possible_main_kb_buttons_in_list
 
 with open("data.csv", "r") as file:
     file.readline()
@@ -39,11 +41,12 @@ def display_characters(chars_list):
     return chars_in_strings
 
 
-def clear_pressed_button(btn):
-    possible_main_kb_buttons.pop(btn)
-    return possible_main_kb_buttons
+def clear_pressed_button(lst, btn):
+    lst.pop(btn)
+    return lst
 
 
 # Variables for states in ConversationHandler
 CRITERIA_FILTER, RESET = range(2)
-REPEAT_MAIN_KB, VALUE_FILTER, REPEAT_CRITERIA_FILTER, REPEAT_VALUE_FILTER = range(2, 6)
+REPEAT_MAIN_KB, VALUE_FILTER, REPEAT_CRITERIA_FILTER = range(2, 5)
+END = ConversationHandler.END

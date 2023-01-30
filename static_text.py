@@ -15,7 +15,7 @@ value_choice_text = [
 Select the element you need. If you want to back to start choice, press BACK button
 """
 success_message = """
-Got it. Let's go to the next step 
+Ok, let's go further
 """
 empty_list_message = """
 Characters not found"""
