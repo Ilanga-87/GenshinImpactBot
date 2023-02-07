@@ -55,7 +55,7 @@ def display_characters_with_emoji(chars_list):
         char_element = char[1].lower()
         char_weapon = char[2].lower()
         char_region = char[4].lower()
-        chars_in_strings_with_emoji += f"{char[0]}  |  " \
+        chars_in_strings_with_emoji += f"➡️{char[0]}  |  " \
                                        f"{elements_dict[char_element]}{char[1]}  |  " \
                                        f"{weapon_dict[char_weapon]}{char[2]}  |  {char[3]}  |  " \
                                        f"{regions_dict.get(char_region, '')}{char[4]} \n"
