@@ -5,6 +5,21 @@ import static_text
 import button_text
 from manage_data import elements_dict, weapon_dict, regions_dict
 
+# Variables to filter characters
+CRITERIA_INPUT = ["-100"]
+VALUE_INPUT = [""]
+
+# Variables for states in ConversationHandler
+CRITERIA_FILTER = 0
+REPEAT_MAIN_KB, VALUE_FILTER, REPEAT_CRITERIA_FILTER = range(2, 5)
+END = ConversationHandler.END
+
+# Holders
+first_criteria_holder = ''
+second_criteria_holder = ''
+first_value_holder = ''
+second_value_holder = ''
+
 with open("data.csv", "r") as file:
     file.readline()
     data = file.readlines()
@@ -30,11 +45,6 @@ def get_characters(char_list, criteria, value):
     return sorted_by_rarity
 
 
-# Variables to filter characters
-CRITERIA_INPUT = ["-100"]
-VALUE_INPUT = [""]
-
-
 # Unused but possible useful
 def display_characters(chars_list):
     if len(chars_list) < 1:
@@ -55,7 +65,7 @@ def display_characters_with_emoji(chars_list):
         char_element = char[1].lower()
         char_weapon = char[2].lower()
         char_region = char[4].lower()
-        chars_in_strings_with_emoji += f"➡️{char[0]}  |  " \
+        chars_in_strings_with_emoji += f"➡️ {char[0]}  |  " \
                                        f"{elements_dict[char_element]}{char[1]}  |  " \
                                        f"{weapon_dict[char_weapon]}{char[2]}  |  {char[3]}  |  " \
                                        f"{regions_dict.get(char_region, '')}{char[4]} \n"
@@ -65,9 +75,3 @@ def display_characters_with_emoji(chars_list):
 def clear_pressed_button(lst, btn):
     lst.pop(btn)
     return lst
-
-
-# Variables for states in ConversationHandler
-CRITERIA_FILTER, RESET = range(2)
-REPEAT_MAIN_KB, VALUE_FILTER, REPEAT_CRITERIA_FILTER = range(2, 5)
-END = ConversationHandler.END

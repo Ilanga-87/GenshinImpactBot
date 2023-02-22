@@ -1,6 +1,6 @@
+import os
+from dotenv import load_dotenv
 import logging
-
-from env_data import TOKEN
 
 from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, ConversationHandler, \
     MessageHandler, filters
@@ -8,11 +8,13 @@ from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandle
 from handlers import start, start_filter, value_filter, criteria_filter, helper, undefined_commands
 from manage_data import FILTER_VALUE, FILTER_CRITERIA
 
-from service import CRITERIA_FILTER, REPEAT_CRITERIA_FILTER, VALUE_FILTER, RESET
+from service import CRITERIA_FILTER, REPEAT_CRITERIA_FILTER, VALUE_FILTER
+
+load_dotenv()
 
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 
-TELEGRAM_TOKEN = TOKEN
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 
 application = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
 

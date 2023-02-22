@@ -23,12 +23,7 @@ possible_main_kb_buttons_tuple = (
     InlineKeyboardButton(region, callback_data=f"{FILTER_CRITERIA}.{REGION_CHOICE}"),
 )
 
-possible_main_kb_buttons_in_list = [
-    InlineKeyboardButton(element, callback_data=f"{FILTER_CRITERIA}.{ELEMENT_CHOICE}"),
-    InlineKeyboardButton(weapon, callback_data=f"{FILTER_CRITERIA}.{WEAPON_CHOICE}"),
-    InlineKeyboardButton(rarity, callback_data=f"{FILTER_CRITERIA}.{RARITY_CHOICE}"),
-    InlineKeyboardButton(region, callback_data=f"{FILTER_CRITERIA}.{REGION_CHOICE}"),
-]
+possible_main_kb_buttons_in_list = []
 
 
 def dynamic_main_keyboard():

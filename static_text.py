@@ -1,6 +1,7 @@
 about_bot = """
 The bot that will help you to filter Genshin Impact characters by Element, Weapon, Rarity and Region.
 """
+
 description = """
 Simple bot that can filter Genshin Impact characters by Element, Weapon, Rarity and Region. 
 Has only control command /filter.
@@ -12,9 +13,11 @@ Hi! I will filter for you Genshin Impact characters. Every filtration can have 2
 Of course, when the amount of characters will be more then 100, I will add more filter steps :)
 My main command is /filter. Also you can look at /help.
 """
+
 first_criteria_text = """
 Here you can choose the first option to filter all Genshin Impact characters by:
 """
+
 second_criteria_text = """
 Here you can choose the second option to filter all Genshin Impact characters by:
 """
@@ -30,6 +33,12 @@ value_choice_text = [
 success_message = """
 Ok, let's go farther
 """
+
+criteria_choice_message = "Your {} criteria is {}."
+value_choice_message = "You selected {}"
+
+amount_of_chars = "You want to see filter by {} {} {} {}. I found {} characters: "
+
 empty_list_message = """
 Characters not found
 """
