@@ -72,6 +72,13 @@ def display_characters_with_emoji(chars_list):
     return chars_in_strings_with_emoji
 
 
-def clear_pressed_button(lst, btn):
-    lst.pop(btn)
-    return lst
+def clear_pressed_button(dctnary, btn):
+    del dctnary[str(btn)]
+    return dctnary
+
+
+def tpl_to_dict(tpl):
+    result_dict = {}
+    for i, elem in enumerate(tpl):
+        result_dict[str(i)] = elem
+    return result_dict

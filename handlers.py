@@ -2,7 +2,7 @@ import service
 import keyboards
 from service import (
     CRITERIA_INPUT, VALUE_INPUT,
-    get_characters, clear_pressed_button, display_characters_with_emoji,
+    get_characters, clear_pressed_button, display_characters_with_emoji, tpl_to_dict,
     CRITERIA_FILTER, VALUE_FILTER, REPEAT_CRITERIA_FILTER, END
 )
 from keyboards import dynamic_main_keyboard, value_keyboards_list
@@ -19,7 +19,8 @@ async def start(update, context):
 
 
 async def start_filter(update, context):
-    keyboards.possible_main_kb_buttons_in_list = list(keyboards.possible_main_kb_buttons_tuple)[:]
+    service.first_criteria_holder, service.second_criteria_holder, service.first_value_holder, service.second_value_holder = "", "", "", ""
+    keyboards.possible_main_kb_buttons_dict = tpl_to_dict(keyboards.possible_main_kb_buttons_tuple)
     service.list_to_filter = service.all_chars_list[:]
     await update.message.reply_text(text=first_criteria_text, reply_markup=dynamic_main_keyboard())
     return CRITERIA_FILTER
@@ -32,7 +33,7 @@ async def criteria_filter(update, context):
     CRITERIA_INPUT[0] = pointer
     reply_text = value_choice_text[pointer]
     reply_keyboard = value_keyboards_list[pointer]
-    clear_pressed_button(keyboards.possible_main_kb_buttons_in_list, pointer)
+    clear_pressed_button(keyboards.possible_main_kb_buttons_dict, pointer)
     await update.callback_query.message.reply_text(text=reply_text, reply_markup=reply_keyboard)
     return VALUE_FILTER
 
@@ -55,7 +56,7 @@ async def value_filter(update, context):
                                len(filtered_list)).replace("  ", "")
     )
     await update.callback_query.message.reply_text(display_list)
-    if len(keyboards.possible_main_kb_buttons_in_list) > 2:
+    if len(keyboards.possible_main_kb_buttons_dict) > 2:
         await update.callback_query.message.reply_text(text=second_criteria_text, reply_markup=dynamic_main_keyboard())
         return REPEAT_CRITERIA_FILTER
     return END

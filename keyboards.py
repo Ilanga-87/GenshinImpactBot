@@ -23,11 +23,15 @@ possible_main_kb_buttons_tuple = (
     InlineKeyboardButton(region, callback_data=f"{FILTER_CRITERIA}.{REGION_CHOICE}"),
 )
 
-possible_main_kb_buttons_in_list = []
+# possible_main_kb_buttons_in_list = []
+
+possible_main_kb_buttons_dict = {}
 
 
 def dynamic_main_keyboard():
-    actual_main_kb_buttons = possible_main_kb_buttons_in_list[:4]
+    actual_main_kb_buttons = []
+    for key, btn in possible_main_kb_buttons_dict.items():
+        actual_main_kb_buttons.append(btn)
     return InlineKeyboardMarkup.from_column(actual_main_kb_buttons)
 
 
