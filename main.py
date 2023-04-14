@@ -16,7 +16,7 @@ logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 
-application = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
+application = ApplicationBuilder().token(TELEGRAM_TOKEN).get_updates_http_version('1.1').http_version('1.1').build()
 
 start_handler = CommandHandler("start", start)
 help_handler = CommandHandler("help", helper)

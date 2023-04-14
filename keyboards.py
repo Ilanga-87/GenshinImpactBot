@@ -23,8 +23,6 @@ possible_main_kb_buttons_tuple = (
     InlineKeyboardButton(region, callback_data=f"{FILTER_CRITERIA}.{REGION_CHOICE}"),
 )
 
-# possible_main_kb_buttons_in_list = []
-
 possible_main_kb_buttons_dict = {}
 
 
