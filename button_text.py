@@ -21,6 +21,6 @@ rarity_4 = "4️⃣"
 rarity_5 = "5️⃣"
 
 mondstadt = "🍃 Mondstadt"
-li_yue = "☄️Li Yue"
+li_yue = "☄️Liyue"
 inazuma = "🌩️ Inazuma"
 sumeru = "🌴 Sumeru"

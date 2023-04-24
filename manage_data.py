@@ -29,7 +29,7 @@ RARITY_5 = "5"
 REGION_VALUE = "region_value"
 
 MONDSTADT = "Mondstadt"
-LI_YUE = "Li Yue"
+LI_YUE = "Liyue"
 INAZUMA = "Inazuma"
 SUMERU = "Sumeru"
 
