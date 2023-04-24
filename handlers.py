@@ -19,7 +19,19 @@ async def start(update, context):
 
 
 async def start_filter(update, context):
-    service.first_criteria_holder, service.second_criteria_holder, service.first_value_holder, service.second_value_holder = "", "", "", ""
+    nick, name, user_id, lang, date = update.message.from_user.username, update.message.from_user.first_name, \
+                                      update.message.from_user.id, update.message.from_user.language_code, \
+                                      update.message.date
+    user_request = update.message.text
+    message_id = update.message.message_id
+    info = f"Message #{message_id} at {date}: Request from USER {nick} (first name is {name}). User id {user_id}, " \
+           f"language {lang}. Request text: {user_request}\n--------------------------------\n "
+    print(info)
+    bot_data = "bot_data.txt"
+    with open(bot_data, "a", encoding="utf8") as data:
+        data.write(info)
+    service.first_criteria_holder, service.second_criteria_holder, service.first_value_holder, \
+        service.second_value_holder = "", "", "", ""
     keyboards.possible_main_kb_buttons_dict = tpl_to_dict(keyboards.possible_main_kb_buttons_tuple)
     service.list_to_filter = service.all_chars_list[:]
     await update.message.reply_text(text=first_criteria_text, reply_markup=dynamic_main_keyboard())
