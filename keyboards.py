@@ -5,7 +5,7 @@ from button_text import (
     cryo, pyro, hydro, electro, geo, anemo, dendro,
     bow, sword, polearm, catalyst, claymore,
     rarity_4, rarity_5,
-    mondstadt, li_yue, inazuma, sumeru,
+    mondstadt, li_yue, inazuma, sumeru, fontaine,
 )
 from manage_data import (
     ELEMENT_CHOICE, WEAPON_CHOICE, RARITY_CHOICE, REGION_CHOICE,
@@ -13,7 +13,7 @@ from manage_data import (
     CRYO, PYRO, GEO, ANEMO, HYDRO, DENDRO, ELECTRO,
     SWORD, CATALYST, CLAYMORE, BOW, POLEARM,
     RARITY_4, RARITY_5,
-    MONDSTADT, LI_YUE, INAZUMA, SUMERU
+    MONDSTADT, LI_YUE, INAZUMA, SUMERU, FONTAINE
 )
 
 possible_main_kb_buttons_tuple = (
@@ -89,6 +89,9 @@ def region_keyboard():
             InlineKeyboardButton(inazuma, callback_data=f"{FILTER_VALUE}.{INAZUMA}"),
             InlineKeyboardButton(sumeru, callback_data=f"{FILTER_VALUE}.{SUMERU}")
         ],
+        [
+            InlineKeyboardButton(fontaine, callback_data=f"{FILTER_VALUE}.{FONTAINE}")
+        ]
     ]
     return InlineKeyboardMarkup(buttons)
 

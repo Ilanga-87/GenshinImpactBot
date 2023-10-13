@@ -32,6 +32,7 @@ MONDSTADT = "Mondstadt"
 LI_YUE = "Liyue"
 INAZUMA = "Inazuma"
 SUMERU = "Sumeru"
+FONTAINE = "Fontaine"
 
 elements_dict = {
     "pyro": "🔥 ",
@@ -55,5 +56,6 @@ regions_dict = {
     "mondstadt": "🍃 ",
     "liyue": "☄️",
     "inazuma": "🌩️ ",
-    "sumeru": "🌴 "
+    "sumeru": "🌴 ",
+    "fontaine": "🌊",
 }
