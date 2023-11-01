@@ -2,7 +2,6 @@ from operator import itemgetter
 from telegram.ext import ConversationHandler
 
 import static_text
-import button_text
 from manage_data import elements_dict, weapon_dict, regions_dict
 
 # Variables to filter characters

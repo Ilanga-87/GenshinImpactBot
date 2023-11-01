@@ -22,7 +22,6 @@ second_criteria_text = """
 Here you can choose the second option to filter all Genshin Impact characters by:
 """
 
-# TODO Instead of change the whole phrase find an approach to change only variables with words
 value_choice_text = [
     "Select the element you want to filter characters by:",
     "Select the weapon you want to filter characters by:",
